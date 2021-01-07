@@ -78,12 +78,9 @@ TEMPLATES = [
 WSGI_APPLICATION = 'cursoIPN.wsgi.application'
 
 # Django rest framework
-REST_FRAMEWORK = {
-    'DEFAULT_AUTHENTICATION_CLASSES': [
-        'rest_framework.authentication.SessionAuthentication'
-    ],
+REST_FRAMEWORK = [
     'DEFAULT_PERMISSION_CLASSES': [
-        'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly'
+        'rest_framework.permissions.IsAuthenticated',
     ]
 }
 # Database

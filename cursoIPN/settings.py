@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'rest_framework',
     #apps from the project
     'alumno.apps.AlumnoConfig',
+    'alumno',
 ]
 
 MIDDLEWARE = [

@@ -19,11 +19,13 @@ from .router import router
 
 from django.conf import settings
 from django.conf.urls.static import static
+import alumno.views
 
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/', include(router.urls)),
-    path('api-auth/', include('rest_framework.urls', namespace='rest_framework'))
+    path('api-auth/', include('rest_framework.urls', namespace='rest_framework')),
+    path('alumno/', views.alumnos_list)
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 

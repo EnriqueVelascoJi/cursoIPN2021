@@ -42,7 +42,7 @@ INSTALLED_APPS = [
     ##Needs apps
     'rest_framework',
     #apps from the project
-    'alumno.apps.ApiConfig',
+    'alumno.apps.AlumnoConfig',
 ]
 
 MIDDLEWARE = [

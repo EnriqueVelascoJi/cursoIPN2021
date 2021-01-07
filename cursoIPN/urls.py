@@ -15,20 +15,17 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-from .router import router
-from rest_framework.urlpatterns import format_suffix_patterns
 
 
 from django.conf import settings
 from django.conf.urls.static import static
-import alumno.views
+
 
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('api/', include(router.urls)),
-    path('api-auth/', include('rest_framework.urls', namespace='rest_framework')),
-    path('alumno/', views.alumnos_list)
+    path('api/', include('alumno.urls')),
+    path('', views.alumnosOverview, name="api-overview"),
+    path('listar/', views.listar_alumno, name="listar_alumnos"),
+    path('crear/', views.crear_alumno, name="crear-alumno")
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
-
-urlpatterns = format_suffix_patterns(urlpatterns)

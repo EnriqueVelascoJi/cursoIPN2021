@@ -1,0 +1,1 @@
+web: gunicorn cursoIPN.wsgi --log-file -

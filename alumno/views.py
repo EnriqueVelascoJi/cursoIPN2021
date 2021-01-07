@@ -9,7 +9,7 @@ from .serializers import AlumnoSerializer
 
 
 @api_view(['GET', 'POST'])
-def alumnos_list(request):
+def alumnos_list(request, format=None):
     """
     List all code alumnserializer = AlumnoSerializer(alumnos, or create a new snippet.
     """

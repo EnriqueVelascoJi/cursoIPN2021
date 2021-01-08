@@ -78,11 +78,11 @@ TEMPLATES = [
 WSGI_APPLICATION = 'cursoIPN.wsgi.application'
 
 # Django rest framework
-REST_FRAMEWORK = {
-    'DEFAULT_PERMISSION_CLASSES': [
-        'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly'
-    ]
-}
+# REST_FRAMEWORK = {
+#     'DEFAULT_PERMISSION_CLASSES': [
+#         'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly'
+#     ]
+# }
 # Database
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
 

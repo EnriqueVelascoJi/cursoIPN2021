@@ -11,8 +11,8 @@ from .serializers import AlumnoSerializer
 @api_view(['GET'])
 def alumnosOverview(request):
     api_urls = {
-        'List': '/listar_alumnos',
-        'Create': '/crear_alumno',
+        'List': '/listar',
+        'Create': '/crear',
     }
     return Response(api_urls)
 

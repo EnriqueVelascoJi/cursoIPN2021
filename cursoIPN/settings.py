@@ -25,7 +25,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = config('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = config('DEBUG')
+DEBUG = config('DEBUG', cast = bool, default=True)
 ALLOWED_HOSTS = ['*']
 
 CORS_ORIGIN_ALLOW_ALL=True
@@ -150,8 +150,6 @@ STATICFILES_DIRS = [
 ]
 
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
-
-from decouple import config
 
 ##CORREOS
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'

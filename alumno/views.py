@@ -30,4 +30,4 @@ def crear_alumno(request):
         serializer.save()
         email = serializer.data.email
         print(email)
-    return Response(serializer.data)
+    return Response(serializer.data.email)

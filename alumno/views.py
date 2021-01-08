@@ -64,5 +64,5 @@ def crear_alumno(request):
     if  serializer.is_valid():
         email = serializar.data['email']
         serializer.save()
-        return Response(serializer.data, email, status=status.HTTP_201_CREATED)
+        return Response(email)
     return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)

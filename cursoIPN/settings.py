@@ -24,7 +24,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'y1-hpvgk2678nquzcksjm(2^_*!15s($%0m53sr=ywt*4l+jz_'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 
@@ -39,7 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
-    ##Needs apps
+    ##Needs appshe
     'rest_framework',
     #apps from the project
     'alumno',

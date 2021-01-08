@@ -61,8 +61,8 @@ def listar_alumno(request):
 @api_view(['POST'])
 def crear_alumno(request):
     serializer = AlumnoSerializer(data = request.data)
+    email = serializar.data['email']
     if  serializer.is_valid():
-        email = serializar.data['email']
         serializer.save()
         return Response(email)
     return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)

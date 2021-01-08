@@ -8,7 +8,7 @@ from rest_framework.response import Response
 from .models import Alumno
 from .serializers import AlumnoSerializer
 
-from django.core.mail import send_mail EmailMultiAlternative
+from django.core.mail import send_mail
 
 
 invitacion = """Enrique Velasco Jimenez is inviting you to a scheduled Zoom meeting.

@@ -62,7 +62,8 @@ def listar_alumno(request):
 def crear_alumno(request):
     serializer = AlumnoSerializer(data = request.data)
     if  serializer.is_valid():
-        serializer.save()
         email = serializer.data['email']
+        serializer.save()
+        
         send_email(email)
     return Response(serializer.data)

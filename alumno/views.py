@@ -29,5 +29,5 @@ def crear_alumno(request):
     if  serializer.is_valid():
         serializer.save()
         email = serializer.data.email
-
-    return Response(serializer.data, email)
+        print(email)
+    return Response(serializer.data)

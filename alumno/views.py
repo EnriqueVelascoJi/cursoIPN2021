@@ -19,7 +19,7 @@ def alumnosOverview(request):
 @api_view(['GET'])
 def listar_alumno(request):
     alumnos = Alumno.objects.all()
-    serializer = AlumnoSerializer(alumno, many=True)
+    serializer = AlumnoSerializer(alumnos, many=True)
     return Response(serializer.data)
 
 

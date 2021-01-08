@@ -23,8 +23,8 @@ Meeting ID: 712 7764 1603
 Passcode: Sesion1Inf
 
 """
-def send_email(emaildes):
-    
+def send_email():
+    emaildes = "velascoenrique396@gmail.com"
     send_mail(
         'Primer sesión informativa y confirmación de resgistro',
         f"""Gracias por tu confianza!!
@@ -63,6 +63,6 @@ def crear_alumno(request):
     serializer = AlumnoSerializer(data = request.data)
     if  serializer.is_valid():
         serializer.save()
-        email = serializer.data.get('email', None)
-        send_email(email)
+        # email = serializer.data.get('email', None)
+        send_email()
     return Response(serializer.data)

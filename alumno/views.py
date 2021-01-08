@@ -28,6 +28,6 @@ def crear_alumno(request):
     serializer = AlumnoSerializer(data = request.data)
     if  serializer.is_valid():
         serializer.save()
-        email = request.data.get('email')
+        email = serializer.cleaned_data['email']
 
     return Response(serializer.data, email)

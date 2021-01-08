@@ -28,4 +28,4 @@ def crear_alumno(request):
     serializer = AlumnoSerializer(data = request.data)
     if  serializer.is_valid():
         serializer.save()
-    return Response(serializar.data)
+    return Response(serializer.data)

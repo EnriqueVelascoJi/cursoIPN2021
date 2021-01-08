@@ -11,7 +11,7 @@ from .serializers import AlumnoSerializer
 from django.core.mail import send_mail
 
 
-invitacion = """Enrique Velasco Jimenez is inviting you to a scheduled Zoom meeting.
+invitacion = """EEnrique Velasco Jimenez is inviting you to a scheduled Zoom meeting.
 
 Topic: Primer Sesión Informativa Curso IPN 2021
 Time: Jan 16, 2021 03:00 PM Mexico City
@@ -21,26 +21,26 @@ https://us04web.zoom.us/j/71277641603?pwd=L3U2ODZtTW1TVkZodjF5QUlXbXp5dz09
 
 Meeting ID: 712 7764 1603
 Passcode: Sesion1Inf
-
 """
-def send_email():
-    emaildes = "velascoenrique396@gmail.com"
+def send_email(emaildes):
+    
     send_mail(
         'Primer sesión informativa y confirmación de resgistro',
         f"""Gracias por tu confianza!!
-           Bienvenido al Curso de Preparación para el Nivel Superior IPN 2021.
+        Bienvenido al Curso de Preparación para el Nivel Superior IPN 2021.
            
-           Tu registro se ha completado exitosamente.
+        Tu registro se ha completado exitosamente.
            
-           Te esperamos el día Sábado 16 de Enero a nuestra primer sesión informativa, donde presentaremos el curso y daremos las indicaciones correspondientes a los pagos, fechas, grupos, horarios, etc. Aclararemos todas las dudas que se puedan presentar. Adjuntamos el link de la reunión (zoom):
-           {invitacion}
+        Te esperamos el día Sábado 16 de Enero a nuestra primer sesión informativa, donde presentaremos el curso y daremos las indicaciones correspondientes a los pagos, fechas, grupos, horarios, etc. Aclararemos todas las dudas que se puedan presentar. Adjuntamos el link de la reunión (zoom):
+        
+        {invitacion}
 
 
-           Saludos cordiales!!
-           """,
-           settings.EMAIL_HOST_USER,
-           [emaildes],
-           fail_silently=False,
+        Saludos cordiales!!
+        """,
+        settings.EMAIL_HOST_USER,
+        [emaildes],
+        fail_silently=False,
     )
 
 @api_view(['GET'])
@@ -63,6 +63,6 @@ def crear_alumno(request):
     serializer = AlumnoSerializer(data = request.data)
     if  serializer.is_valid():
         serializer.save()
-        # email = serializer.data.get('email', None)
-        send_email()
-    return Response(serializer.data)
+        email = serializer.data.['email']
+        send_email(email)
+    return None

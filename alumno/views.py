@@ -10,8 +10,10 @@ from .serializers import AlumnoSerializer
 
 from django.core.mail import send_mail
 
+from rest_framework.renderers import JSONRenderer
 
-invitacion = """EEnrique Velasco Jimenez is inviting you to a scheduled Zoom meeting.
+
+invitacion = """Enrique Velasco Jimenez is inviting you to a scheduled Zoom meeting.
 
 Topic: Primer Sesión Informativa Curso IPN 2021
 Time: Jan 16, 2021 03:00 PM Mexico City
@@ -61,8 +63,11 @@ def listar_alumno(request):
 @api_view(['POST'])
 def crear_alumno(request):
     serializer = AlumnoSerializer(data = request.data)
-    email = serializar.data['email']
+    
     if  serializer.is_valid():
         serializer.save()
+        json = JSONRenderer().render(serializer.data)
+        email = json['email']
+        send_email(email)
         return Response(email)
     return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)

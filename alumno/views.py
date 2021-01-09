@@ -69,5 +69,5 @@ def crear_alumno(request):
     if  serializer.is_valid():
         serializer.save()
         send_email(email)
-        return Response(serializer.data)
+        return Response(serializer.data, email)
     return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)

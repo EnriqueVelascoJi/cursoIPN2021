@@ -13,7 +13,8 @@ from django.core.mail import send_mail
 from rest_framework.renderers import JSONRenderer
 
 
-invitacion = """Enrique Velasco Jimenez is inviting you to a scheduled Zoom meeting.
+invitacion = """
+Enrique Velasco Jimenez is inviting you to a scheduled Zoom meeting.
 
 Topic: Primer Sesión Informativa Curso IPN 2021
 Time: Jan 16, 2021 03:00 PM Mexico City
@@ -26,11 +27,12 @@ Passcode: Sesion1Inf
 
 
 """
-def send_email(emaildes):
+def send_email(emaildes, nombre):
     
     send_mail(
         'Primer sesión informativa y confirmación de resgistro',
-        f"""Gracias por tu confianza!!
+        f"""
+        Gracias por tu confianza {nombre}!!
         Bienvenido al Curso de Preparación para el Nivel Superior IPN 2021.
            
         Tu registro se ha completado exitosamente.
@@ -66,8 +68,9 @@ def listar_alumno(request):
 def crear_alumno(request):
     serializer = AlumnoSerializer(data = request.data)
     email = request.data.get('email')
+    nombre = request.data.get('name')
     if  serializer.is_valid():
         serializer.save()
-        send_email(email)
+        send_email(email, nombre)
         return Response(serializer.data)
     return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)

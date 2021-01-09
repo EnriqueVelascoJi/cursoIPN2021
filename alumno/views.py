@@ -32,12 +32,12 @@ def send_email(emaildes, nombre):
     send_mail(
         'Primer sesión informativa y confirmación de resgistro',
         f"""
-    Gracias por tu confianza {nombre}!!
-    Bienvenido al Curso de Preparación para el Nivel Superior IPN 2021.
+Gracias por tu confianza, {nombre}!!
+Bienvenido al Curso de Preparación para el Nivel Superior IPN 2021.
            
-    Tu registro se ha completado exitosamente.
+Tu registro se ha completado exitosamente.
            
-    Te esperamos el día Sábado 16 de Enero a nuestra primer sesión informativa, donde presentaremos el curso y daremos las indicaciones correspondientes a los pagos, fechas, grupos, horarios, etc. Aclararemos todas las dudas que se puedan presentar. Adjuntamos el link de la reunión (zoom):
+Te esperamos el día Sábado 16 de Enero a nuestra primer sesión informativa, donde presentaremos el curso y daremos las indicaciones correspondientes a los pagos, fechas, grupos, horarios, etc. Aclararemos todas las dudas que se puedan presentar. Adjuntamos el link de la reunión (zoom):
         
         {invitacion}
 

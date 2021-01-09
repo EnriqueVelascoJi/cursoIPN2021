@@ -23,6 +23,8 @@ https://us04web.zoom.us/j/71277641603?pwd=L3U2ODZtTW1TVkZodjF5QUlXbXp5dz09
 
 Meeting ID: 712 7764 1603
 Passcode: Sesion1Inf
+
+
 """
 def send_email(emaildes):
     
@@ -63,11 +65,9 @@ def listar_alumno(request):
 @api_view(['POST'])
 def crear_alumno(request):
     serializer = AlumnoSerializer(data = request.data)
-    
+    email = request.POST.get('email')
     if  serializer.is_valid():
         serializer.save()
-        json = JSONRenderer().render(serializer.data)
-        email = json['email']
         send_email(email)
-        return Response(email)
+        return None
     return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
